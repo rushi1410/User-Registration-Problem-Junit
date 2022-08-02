@@ -36,6 +36,23 @@ public class UserRegistrationMain {
 			System.err.println(lastName + " is an Invalid Last Name");
 	}
 
+	public static void emailIdValidation(String emailId){
+
+		boolean isEmailId;
+		String emailIdRegex ="^[0-9 A-Z a-z]+(([._+-]*)[0-9A-Za-z]+)*@[0-9 A-Z a-z]+.[a-z]{2,4}([.]    [a-z]{2,3})*$";
+		Pattern patternObj = Pattern.compile(emailIdRegex);
+		if (emailId == null) {
+			isEmailId = false;
+		}
+		Matcher matcherObj = patternObj.matcher(emailId);
+		isEmailId =  matcherObj.matches();
+
+		if(isEmailId)
+			System.out.println(emailId+" is a Valid Email Id\n");
+		else
+			System.out.println(emailId+" is a Invalid Email Id");
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration System");
 		Scanner input = new Scanner(System.in);
@@ -47,7 +64,12 @@ public class UserRegistrationMain {
 		System.out.println("Enter your lastname: ");
 		String LastName = input.nextLine();
 		lastNameValidation(LastName);
+
+		System.out.println("Enter your EmailId: ");
+		String EmailID = input.nextLine();
+		emailIdValidation(EmailID);
 		input.close();
+
 	}
 }
 
