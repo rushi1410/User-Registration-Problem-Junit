@@ -53,6 +53,23 @@ public class UserRegistrationMain {
 			System.out.println(emailId+" is a Invalid Email Id");
 	}
 
+	public static void MobileNumberValidation(String mobileNumber){
+
+		boolean isMobileNumber;
+		String mobileNumberRegex = "^[9][1]\\s[6-9]{1}[0-9]{9}$";
+		Pattern patternObj = Pattern.compile(mobileNumberRegex);
+		if (mobileNumber == null) {
+			isMobileNumber = false;
+		}
+		Matcher matcherObj = patternObj.matcher(mobileNumber);
+		isMobileNumber =  matcherObj.matches();
+
+		if(isMobileNumber)
+			System.out.println(mobileNumber+" is a Valid  Mobile Number\n");
+		else
+			System.out.println(mobileNumber+" is a Invalid Mobile Number");
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration System");
 		Scanner input = new Scanner(System.in);
@@ -68,8 +85,13 @@ public class UserRegistrationMain {
 		System.out.println("Enter your EmailId: ");
 		String EmailID = input.nextLine();
 		emailIdValidation(EmailID);
+
+		System.out.println("Please Enter the mobile number with country code 91: ");
+		String MobileNumber = input.nextLine();
+		MobileNumberValidation(MobileNumber);
 		input.close();
 
 	}
+
 }
 
