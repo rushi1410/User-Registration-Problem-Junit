@@ -26,7 +26,6 @@ public class UserRegistrationMain {
 		System.out.print("Enter firstname: ");
 		String FirstName = input.nextLine();
 		firstNameValidation(FirstName);
-
 		input.close();
 	}	
 }
