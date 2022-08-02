@@ -17,8 +17,8 @@ public class UserRegistrationMain {
 			System.out.println(FirstName+" is an Valid First Name");
 		else
 			System.err.println(FirstName+" is an Invalid First Name");
-
 	}
+
 	public static void lastNameValidation(String lastName) {
 
 		boolean isLastName;
@@ -36,22 +36,47 @@ public class UserRegistrationMain {
 			System.err.println(lastName + " is an Invalid Last Name");
 	}
 
-	public static void emailIdValidation(String emailId){
-
-		boolean isEmailId;
-		String emailIdRegex ="^[0-9 A-Z a-z]+(([._+-]*)[0-9A-Za-z]+)*@[0-9 A-Z a-z]+.[a-z]{2,4}([.]    [a-z]{2,3})*$";
+	public static void emailIdValidation(){
+		String emailIdRegex = "^[0-9 A-Z a-z]+(([._+-]*)[0-9A-Za-z]+)*@[0-9 A-Z a-z]+.[a-z]{2,4}([.][a-z]{2,3})*$";
 		Pattern patternObj = Pattern.compile(emailIdRegex);
-		if (emailId == null) {
-			isEmailId = false;
-		}
-		Matcher matcherObj = patternObj.matcher(emailId);
-		isEmailId =  matcherObj.matches();
+		String EmailId [] = 
+			{
+					"abc@yahoo.com",
+					"abc-100@yahoo.com",
+					"abc.100@yahoo.com",
+					"abc111@abc.com",
+					"abc-100@abc.net",
+					"abc.100@abc.com.au",
+					"abc@1.com",
+					"abc@gmail.com.com",
+					"abc+100@gmail.com",
 
-		if(isEmailId)
-			System.out.println(emailId+" is a Valid Email Id\n");
-		else
-			System.out.println(emailId+" is a Invalid Email Id");
+					"abc",
+					"abc@.com.my",
+					"abc123@gmail.a",
+					"abc123@.com",
+					"abc123@.com.com",
+					".abc@abc.com",
+					"abc()*@gmail.com",
+					"abc@%*.com",
+					"abc..2002@gmail.com",
+					"abc.@gmail.com",
+					"abc@abc@gmail.com",
+					"abc@gmail.com.1a",
+					"abc@gmail.com.aa.au",
+					"abc1..@gmail.com"
+			};
+		for(int i=0;i<EmailId.length;i++) {
+			Matcher emailId = patternObj.matcher(EmailId[i]);
+			if(emailId.matches()) {
+				System.out.println("Valid EmailId:"+EmailId[i]);
+			}
+			else {
+				System.out.println("InValid EmailId:"+EmailId[i]);
+			}
+		}
 	}
+
 
 	public static void MobileNumberValidation(String mobileNumber){
 
@@ -100,7 +125,7 @@ public class UserRegistrationMain {
 
 		System.out.println("Enter your EmailId: ");
 		String EmailID = input.nextLine();
-		emailIdValidation(EmailID);
+		emailIdValidation();
 
 		System.out.println("Enter the mobile number with country code 91: ");
 		String MobileNumber = input.nextLine();
