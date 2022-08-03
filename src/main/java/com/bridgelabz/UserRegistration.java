@@ -23,7 +23,7 @@ public class UserRegistration {
 	}
 
 	public boolean emailIdValidation(String emailId) {
-		boolean Validation= emailId.matches("^[0-9 A-Z a-z]+(([._+-]*)[0-9A-Za-z]+)*@[0-9 A-Z a-z]+.[a-z]{2,4}([.]    [a-z]{2,3})*$");
+		boolean Validation= emailId.matches("^[0-9 A-Z a-z]+(([._+-]*)[0-9A-Za-z]+)*@[0-9 A-Z a-z]+.[a-z]{2,4}([.] [a-z]{2,3})*$");
 		if (Validation){
 			System.out.println(emailId+" is a Valid Email Id\n");
 		} else {

@@ -5,6 +5,5 @@ public class UserRegistrationMain {
 		System.out.println("Welcome To User Registration Problem");
 		UserValidation userObj = new UserValidation();
 		userObj.SelectOption();
-
 	}
 }
